@@ -47,3 +47,7 @@ class ProductInfo(models.Model):
         verbose_name_plural = 'Информация о товарах'
 
 
+class Parameter(models.Model):
+    pass
+
+
