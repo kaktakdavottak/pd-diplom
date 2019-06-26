@@ -39,4 +39,11 @@ class ProductInfo(models.Model):
     price = models.PositiveIntegerField(verbose_name='Цена')
     price_rrc = models.PositiveIntegerField(verbose_name='РРЦ')
 
+    def __str__(self):
+        return self.model
+
+    class Meta:
+        verbose_name = 'Информация о товаре'
+        verbose_name_plural = 'Информация о товарах'
+
 
