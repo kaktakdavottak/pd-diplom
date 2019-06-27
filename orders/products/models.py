@@ -48,6 +48,27 @@ class ProductInfo(models.Model):
 
 
 class Parameter(models.Model):
-    pass
+    name = models.CharField(verbose_name='Параметр', max_length=100)
 
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Параметр'
+        verbose_name_plural = 'Параметры'
+
+
+class ProductParameter:
+    product_info = models.ForeignKey(ProductInfo, on_delete=models.CASCADE,
+                                     verbose_name='Информация о товаре')
+    parameter = models.ForeignKey(Parameter, on_delete=models.CASCADE,
+                                  verbose_name='Параметр')
+    value = models.CharField(verbose_name='Значение', max_length=100)
+
+    def __str__(self):
+        return '{0}_{1}'.format(self.parameter, self.value)
+
+    class Meta:
+        verbose_name = 'Параметр товара'
+        verbose_name_plural = 'Параметры товара'
 

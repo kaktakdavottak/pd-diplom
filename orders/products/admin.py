@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category
+from .models import Category, Product, ProductInfo, Parameter, ProductParameter
 
 
 class CategoryInline(admin.TabularInline):
@@ -18,5 +18,24 @@ class CategoryAdmin(admin.ModelAdmin):
     exclude = ['shops']
 
 
-admin.site.register(Category, CategoryAdmin)
+class ProductAdmin(admin.ModelAdmin):
+    list_display = ['name', 'category']
 
+
+class ProductInfoAdmin(admin.ModelAdmin):
+    list_display = ['product', 'model', 'quantity', 'price', 'price_rrc']
+
+
+class ParameterAdmin(admin.ModelAdmin):
+    list_display = ['name']
+
+
+class ProductParameterAdmin(admin.ModelAdmin):
+    list_display = ['product_info', 'parameter', 'value']
+
+
+admin.site.register(Category, CategoryAdmin)
+admin.site.register(Product, ProductAdmin)
+admin.site.register(ProductInfo, ProductInfoAdmin)
+admin.site.register(Parameter, ParameterAdmin)
+admin.site.register(ProductParameter, ProductParameterAdmin)
