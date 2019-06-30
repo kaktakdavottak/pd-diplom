@@ -58,7 +58,7 @@ class Parameter(models.Model):
         verbose_name_plural = 'Параметры'
 
 
-class ProductParameter:
+class ProductParameter(models.Model):
     product_info = models.ForeignKey(ProductInfo, on_delete=models.CASCADE,
                                      verbose_name='Информация о товаре')
     parameter = models.ForeignKey(Parameter, on_delete=models.CASCADE,

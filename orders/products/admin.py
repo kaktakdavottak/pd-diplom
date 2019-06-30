@@ -39,3 +39,4 @@ admin.site.register(Product, ProductAdmin)
 admin.site.register(ProductInfo, ProductInfoAdmin)
 admin.site.register(Parameter, ParameterAdmin)
 admin.site.register(ProductParameter, ProductParameterAdmin)
+
